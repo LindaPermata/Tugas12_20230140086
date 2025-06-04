@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pendaftaran Peminatan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      margin: 0;
+    }
+
+    .form-box {
+      background-color: #fff0f5;
+      border-radius: 15px;
+      padding: 30px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #d63384;
+      margin-bottom: 25px;
+      background-color: #ffd6e8;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #f8bbd0;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #ad1457;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #f5c2e7;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 1rem;
+      background-color: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 80px;
+    }
+
+    .radio-group {
+      margin-top: 10px;
+    }
+
+    .radio-group label {
+      font-weight: normal;
+      display: block;
+      margin-left: 5px;
+      color: #6d214f;
+    }
+
+    button {
+      width: 100%;
+      background-color: #f06292;
+      color: white;
+      padding: 12px;
+      margin-top: 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ec407a;
+    }
+
+    .hasil {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #fce4ec;
+      border-left: 5px solid #f06292;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Pendaftaran Peminatan</h2>
+    <form id="peminatanForm">
+      <label for="nama">Nama</label>
+      <input type="text" id="nama" placeholder="Nama anda" required>
+
+      <label for="nim">NIM</label>
+      <input type="text" id="nim" placeholder="NIM anda" required>
+
+      <label>Peminatan pada bidang:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="peminatan" value="Programming"> Programming</label>
+        <label><input type="radio" name="peminatan" value="Desain"> Desain</label>
+        <label><input type="radio" name="peminatan" value="Jaringan"> Jaringan</label>
+        <label><input type="radio" name="peminatan" value="Data"> Data</label>
+      </div>
+
+      <label for="alamat">Alamat</label>
+      <textarea id="alamat" placeholder="Tulis alamatmu di sini" required></textarea>
+
+      <label for="angkatan">Pilih Angkatan</label>
+      <select id="angkatan" required>
+        <option value="">-- Pilih Angkatan --</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+      </select>
+
+      <label for="tanggal">Tanggal</label>
+      <input type="date" id="tanggal" required>
+
+      <button type="submit">Kirim</button>
+    </form>
+
+    <div class="hasil" id="output"></div>
+  </div>
+
+  <script>
+    document.getElementById('peminatanForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById('nama').value.trim();
+      const nim = document.getElementById('nim').value.trim();
+      const peminatan = document.querySelector('input[name="peminatan"]:checked');
+      const alamat = document.getElementById('alamat').value.trim();
+      const angkatan = document.getElementById('angkatan').value;
+      const tanggal = document.getElementById('tanggal').value;
+
+      if (!peminatan) {
+        alert('Silakan pilih peminatan terlebih dahulu!');
+        return;
+      }
+
+      alert(`Data berhasil dikirim!\n\nNama: ${nama}\nNIM: ${nim}\nPeminatan: ${peminatan.value}\nAlamat: ${alamat}\nAngkatan: ${angkatan}\nTanggal: ${tanggal}`);
+
+      const outputDiv = document.getElementById('output');
+      outputDiv.style.display = 'block';
+      outputDiv.innerHTML = `<strong>Data yang Anda kirim:</strong><br>
+                             Nama: ${nama}<br>
+                             NIM: ${nim}<br>
+                             Peminatan: ${peminatan.value}<br>
+                             Alamat: ${alamat}<br>
+                             Angkatan: ${angkatan}<br>
+                             Tanggal: ${tanggal}`;
+    });
+  </script>
+</body>
+</html>
