@@ -11,7 +11,7 @@ Tugas ini adalah implementasi form pendaftaran peminatan menggunakan HTML dan CS
 - Alert konfirmasi + tampilkan hasil input di bawah form
 
 ## 📸 Screenshot Hasil
-![Screenshot](TugasPDW.png)
+![Screenshot](Tugas12.png)
 
 ---
 
