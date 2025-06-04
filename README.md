@@ -1,6 +1,6 @@
 # Tugas12_20230140086
 
-## 🌸 Form Peminatan Mahasiswa
+## Form Peminatan Mahasiswa
 
 Tugas ini adalah implementasi form pendaftaran peminatan menggunakan HTML dan CSS inline, dengan fitur:
 
@@ -15,4 +15,4 @@ Tugas ini adalah implementasi form pendaftaran peminatan menggunakan HTML dan CS
 
 ---
 
-✅ Tugas ini dikumpulkan melalui **MyKlass**
+ Tugas ini dikumpulkan melalui **MyKlass**
